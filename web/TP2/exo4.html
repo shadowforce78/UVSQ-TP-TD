@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tableau</title>
+</head>
+
+<body>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px dotted black;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            padding: 5px;
+        }
+
+        info {
+            column-span: 3;
+        }
+    </style>
+
+    <table border="2">
+        <tr>
+            <th></th>
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+        </tr>
+        <tr>
+            <th>8h-10h</th>
+            <td>Anglais</td>
+            <td>Maths</td>
+            <td colspan="3" align="center">Français</td>
+        </tr>
+        <tr>
+            <th>10h-12h</th>
+            <td colspan="2" align="center">Anglais</td>
+            <td colspan="3" align="center">Histoire</td>
+        </tr>
+        <tr>
+            <th>14h-16h</th>
+            <td colspan="2" align="center">Philosophie</td>
+            <td colspan="3" align="center">Informatique</td>
+        </tr>
+    </table>
+</body>
+
+</html>

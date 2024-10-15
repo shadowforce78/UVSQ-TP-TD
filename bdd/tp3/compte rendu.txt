@@ -1,0 +1,8 @@
+-- select distinct(titre) from film where realisateur ='Francis Coppola'
+-- select nom_salle as NomDeLaSalle, horaire from seance where titre = 'Le parrain'
+-- select distinct(nom_salle) as nomdelasalle from seance where seance.titre in (select distinct(film.titre) from film where film.acteur='Al Pacino' or film.acteur='Marlon Brando');
+-- select distinct(nom_salle) from seance, film where seance.horaire > '23h' and film.realisateur = 'Francis Coppola' and acteur = 'Marlon Brando'
+-- select * from produit where producteur in (select acteur from film)
+-- select titre, acteur from film where acteur in (select producteur from produit);
+-- select producteur from produit where producteur in (select acteur from film) and producteur in (select realisateur from film)
+-- select distinct(spectateur) from vu where spectateur not in (select spectateur from aime)

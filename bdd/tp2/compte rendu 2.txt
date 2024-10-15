@@ -1,0 +1,41 @@
+-- select DNAME from dept
+-- select loc from dept where dname='OPERATIONS'
+-- select max(deptno) from dept
+-- select ename from emp where comm=(select max(comm) from emp)
+-- select min(sal) from emp
+-- select job from emp where sal = (select min(sal) from emp)
+-- select avg(sal) from emp
+-- select avg(sal) from emp where job='MANAGER'
+-- select ename from emp where deptno=10 and job!='PRESIDENT'
+-- select ename, job from emp where deptno=(select deptno from dept where dname='RESEARCH')
+-- select ename from emp where job='ANALYST' and  deptno=(select deptno from dept where dname='RESEARCH')
+-- select ename, job, sal from emp where job='SALESMAN' or job='ANALYST'
+-- insert into dept values ('50','MARKETING','PORTLAND');
+-- update dept set loc='LOS ANGELES' where deptno='50'
+-- delete from dept where deptno='50'
+
+
+
+-- update emp set sal = sal + 100 where job ='CLERK';
+-- insert into dept  values ('50', 'COMPUTER', 'PARIS')
+-- create table PROMOTION (ENAME varchar(10), JOB varchar(9), SAL number(7,2), COMM number(7,2))
+-- insert into promotion values ('DUPONT', 'COMPUTER', '2000','');
+-- delete from promotion where ename='DUPONT'; 
+-- insert into promotion select ename, job, sal, comm from emp where comm > 0.25*sal
+-- drop table promotion
+-- create table PROMOTION as select ename, job, sal, comm from emp where comm > 0.25*sal
+-- update emp set sal = sal*0.9 where (select loc from dept where EMP.deptno = DEPT.deptno) ='CHICAGO'
+-- delete from promotion where sal > 1000 and (select loc from dept where DEPT.deptno = (select deptno from emp where PROMOTION.ename = EMP.ename)) in ('CHICAGO', 'NEW YORK')
+-- select ename from emp where deptno = (select deptno from dept where loc='DALLAS')
+-- select count(ENAME) as nbEmp, avg(sal) as avgsal from emp
+-- select count(distinct job) as nbJob from emp
+-- select avg(sal) as avgSal, max(sal) as maxSal, min(sal) as minSal, max(Sal)-min(Sal) as diffSal from emp
+
+-- select * from emp where sal > (select min(Sal) from emp where deptno=30)
+-- select * from emp where sal > any (select sal from emp where deptno=30)
+
+-- select * from emp where sal > (select max(Sal) from emp where deptno=30)
+-- select * from emp where sal > all (select sal from emp where deptno=30)
+
+-- select loc from dept where (select count(ename) from emp where dept.deptno = emp.deptno) < 1
+

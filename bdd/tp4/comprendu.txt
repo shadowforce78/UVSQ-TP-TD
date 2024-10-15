@@ -1,0 +1,18 @@
+-- select titre,prix,type,periode from journal
+-- select titre,prix,type,periode from journal order by titre
+-- select titre from journal where periode='MENSUEL'
+-- select * from journal order by type asc, prix
+-- select titre, adr from journal, depot, livraison where (select n_dep from livraison where code_j = journal.code_j) = depot.adr
+-- select min(prix), avg(prix) ,max(prix) from journal
+-- select count(titre), count(distinct type) from journal
+-- select code_j from journal where type is null
+-- select min(prix), avg(prix) ,max(prix), type from journal group by type
+-- select n_dep, avg(qte_l) from livraison group by n_dep having avg(qte_l) > 15
+-- select adr_j from journal group by adr_j having count(titre) >= 5
+-- select count(distinct adr_j) from journal group by adr_j having count(titre) >= 4
+-- select distinct code_j from journal natural join livraison natural join depot where adr like 'BURES%'
+-- select distinct code_j from journal natural join livraison natural join depot where nom_dep like 'LES BRASSEURS%';
+-- select distinct titre from journal natural join livraison natural join depot where nom_dep like 'LES BRASSEURS%';
+-- select count(distinct titre) from journal natural join livraison natural join depot where nom_dep like 'LES BRASSEURS%';
+-- select code_j, titre from journal where prix > 2*(select min(prix) from journal)
+-- select n_dep from livraison group by n_dep having count(code_j) > 1

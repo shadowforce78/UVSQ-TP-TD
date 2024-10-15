@@ -1,0 +1,21 @@
+--desc EMP
+--desc DEPT
+--select * from EMP
+--select * from DEPT
+--select DEPTNO, DNAME from DEPT
+--select * from EMP where DEPTNO='30'
+--select ENAME, SAL from EMP where JOB='MANAGER' AND SAL>'2800'
+--select ENAME, SAL from EMP where JOB!='MANAGER' AND SAL>'2800'
+--select ENAME, EMPNO from emp where JOB='CLERK' OR JOB='SALESMAN' AND SAL<2000
+--select ENAME, EMPNO from emp where sal>comm
+--select ENAME, EMPNO from emp where comm<0.02*sal
+--select job from emp
+--select distinct job from emp
+--select ENAME, SAL, SAL+COMM from emp where job='SALESMAN'
+--select ENAME, SAL from EMP where sal between 1200 and 4000
+--select ENAME from EMP where ENAME like '__R%'
+--select ENAME, JOB, SAL from emp where EXTRACT(YEAR from hiredate) = 1982
+--select ENAME, COMM/SAL as rapport from emp
+--select ENAME from EMP where sal = (select max(sal) from emp)
+--select ENAME from EMP where sal < (select sal from emp where ename = 'TURNER')
+--select * from emp where to_char(hiredate, 'MMDD') between '0320' and '0621'
