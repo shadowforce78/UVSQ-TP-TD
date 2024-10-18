@@ -1,0 +1,11 @@
+-- select titre from message where auteur='LOYER'
+-- select mod, nomgroupe from groupe natural join moderateur
+-- select count(idmessage) as nbmessage from message
+-- select titre, auteur, nomgroupe from message natural join groupe where datemsg between to_timestamp('01-JAN-2020') and to_timestamp('01-JUL-2024')
+-- select count(distinct lecteur) from lecture natural join message natural join groupe where nomgroupe='Jeux'
+-- select count(lecteur) as  nblecteur, count(titre) as nbecris, nomgroupe from groupe natural join message natural join lecture group by nomgroupe
+-- select titre, texte from message where msgpere in (select idmessage from message natural join groupe where auteur='LOYER');
+-- select auteur as nbmessage from message group by auteur order by  count(idmessage) desc;
+-- select auteur from message where idgroupe not in (select idgroupe from groupe where nomgroupe='Cinema')
+-- select distinct auteur from lecture, message where message.auteur not in lecture.lecteur
+-- select avg(nbl),nomgroupe from (select count(distinct lecteur) as nbl,nomgroupe,idmessage  from lecture natural join message natural join groupe    group by idmessage,nomgroupe) group by nomgroupe order by avg(nbl) DESC ;

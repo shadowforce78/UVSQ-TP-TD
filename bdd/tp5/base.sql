@@ -1,5 +1,3 @@
-
-
 -- Initialisation de la base
 -- suppression de la base si elle existe
 
