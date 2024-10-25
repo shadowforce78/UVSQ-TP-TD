@@ -1,13 +1,46 @@
 Exercice 1. Traduire en SQL les requêtes suivantes :
 
 -- select titre from message where auteur='SCOTT'
--- select titre from message natural join groupe where nomgroupe='BD'
--- select lecteur from lecture where idmessage in (select idmessage from message where texte like '%soutenance%')
--- select auteur, datemsg from lecture natural join message natural join groupe natural join moderateur where lecteur ='SCOTT' and mod = 'LOYER' and nomgroupe='Global'
--- select titre from lecture minus select titre from lecture natural join message natural join groupe natural join moderateur
--- select mod from lecture, moderateur where mod=lecteur
--- select mod from message, moderateur where mod = auteur
--- select mod from message natural join moderateur where mod=auteur
--- select datelecture from lecture where idmessage not in (select idmessage from lecture where lecteur ='SCOTT')
--- select titre from message natural join groupe where nomgroupe='BD' and auteur = 'SCOTT'
+selection de titre depuis la table message où l'auteur est SCOTT
 
+-- select titre from message natural join groupe where nomgroupe='BD'
+selection de titre depuis la table message et groupe où le groupe est BD
+
+-- select lecteur from lecture where idmessage in (select idmessage from message where texte like '%soutenance%')
+selection de lecteur depuis la table lecture ou l'idmessage est dans la selection de idmessage depuis la table message où le texte contient '%soutenance%'
+
+-- select auteur, datemsg from lecture natural join message natural join groupe natural join moderateur where lecteur ='SCOTT' and mod = 'LOYER' and nomgroupe='Global'
+selection de auteur et datemsg depuis la table lecture, message, groupe et moderateur où le lecteur est SCOTT, le mod est LOYER et le nomgroupe est Global
+
+-- select titre from lecture minus select titre from lecture natural join message natural join groupe natural join moderateur
+selection de titre depuis la table lecture moins la selection de titre depuis la table lecture, message, groupe et moderateur
+
+-- select mod from lecture, moderateur where mod=lecteur
+selection de mod depuis la table lecture et moderateur où mod est lecteur
+
+-- select mod from message, moderateur where mod = auteur
+selection de mod depuis la table message et moderateur où mod est auteur
+
+-- select mod from message natural join moderateur where mod=auteur
+selection de mod depuis la table message et moderateur où mod est auteur
+
+-- select datelecture from lecture where idmessage not in (select idmessage from lecture where lecteur ='SCOTT')
+selection de datelecture depuis la table lecture où l'idmessage n'est pas dans la selection de idmessage depuis la table lecture où le lecteur est SCOTT
+
+-- select titre from (select * from message where auteur = 'SCOTT') natural join (select * from groupe where nomgroupe='BD' )
+selection de titre depuis la selection de tous depuis la table message où l'auteur est SCOTT et la selection de * depuis la table groupe où le nomgroupe est BD
+
+
+Exercice 2.Traduire en Algèbre relationnelle les requˆetes suivantes :
+$\pi_{auteur}(\sigma_{title like '\%Projet\%'}(MESSAGE))$
+selection de auteur depuis la table message où le titre contient '%Projet%'
+
+
+$\pi_{titre}(\sigma_{message.id = lecture.idmessage\ \wedge\ titre\ like\ '\%projet\%'\ \wedge\ lecteur='SCOTT' }(MESSAGE\ \bowtie\ LECTURE))$
+selection de titre depuis la table message où l'id est égal à l'idmessage et le titre contient '%projet%' et le lecteur est SCOTT
+
+$\pi_{auteur}(\sigma_{mod=auteur}(MESSAGE\ \bowtie\ MODERATEUR))$
+selection de auteur depuis la table message où le mod est auteur
+
+$\pi_{nomgroupe}(\sigma_{idgroupe\ \in\ (\pi_{idgroupe(\sigma_{message.idmessage=lecture.idmessage\ \wedge\ lecteur='SCOTT'}(MESSAGE\ \bowtie\ LECTURE))})}(GROUPE))$
+selection de nomgroupe depuis la table groupe où l'idgroupe est dans la selection de idgroupe depuis la selection de idgroupe depuis la table message où l'idmessage est égal à l'idmessage et le lecteur est SCOTT
