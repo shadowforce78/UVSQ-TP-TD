@@ -1,0 +1,13 @@
+Exercice 1. Traduire en SQL les requêtes suivantes :
+
+-- select titre from message where auteur='SCOTT'
+-- select titre from message natural join groupe where nomgroupe='BD'
+-- select lecteur from lecture where idmessage in (select idmessage from message where texte like '%soutenance%')
+-- select auteur, datemsg from lecture natural join message natural join groupe natural join moderateur where lecteur ='SCOTT' and mod = 'LOYER' and nomgroupe='Global'
+-- select titre from lecture minus select titre from lecture natural join message natural join groupe natural join moderateur
+-- select mod from lecture, moderateur where mod=lecteur
+-- select mod from message, moderateur where mod = auteur
+-- select mod from message natural join moderateur where mod=auteur
+-- select datelecture from lecture where idmessage not in (select idmessage from lecture where lecteur ='SCOTT')
+-- select titre from message natural join groupe where nomgroupe='BD' and auteur = 'SCOTT'
+
