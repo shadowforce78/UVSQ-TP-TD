@@ -1,3 +1,3 @@
-import todolist
+from todolist import *
 
-todolist.todo
+main()
