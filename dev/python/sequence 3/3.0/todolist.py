@@ -93,9 +93,11 @@ def main():
             priority = int(input("Entrez la priorité de la tâche (1-3) : "))
             todolist = AddTodo(task, priority, todolist)
         elif choice == "2":
+            print("\033[H\033[J")
             task = int(input("Entrez la tâche à supprimer (index) : "))
             todolist = RemoveTodo(todolist, task)
         elif choice == "3":
+            print("\033[H\033[J")
             HighPriority, MidPriority, LowPriority = GetTodoList(todolist)
             ShowTodoList(HighPriority, MidPriority, LowPriority)
         elif choice == "4":
