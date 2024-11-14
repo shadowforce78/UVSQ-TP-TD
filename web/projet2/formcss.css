@@ -1,32 +1,41 @@
-legend{
+legend {
     background-color: lightblue;
+    border-color: aliceblue;
     border-radius: 8px;
     text-align: center;
     color: black;
 }
-fieldset{
-    width: 50%;
+
+fieldset {
+    width: 400px;
     margin: auto;
     border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
     background-color: aliceblue;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     text-align: left;
     background-color: aliceblue;
     border: 0px;
 }
-label{
+
+label {
     margin-top: 10px;
     color: blue;
     font-size: large;
 }
-input{
+
+input {
     margin-top: 5px;
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 7px;
+}
+
+input[type=submit] {
+    background-color: blue;
 }
