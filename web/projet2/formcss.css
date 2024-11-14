@@ -1,0 +1,32 @@
+legend{
+    background-color: lightblue;
+    border-radius: 8px;
+    text-align: center;
+    color: black;
+}
+fieldset{
+    width: 50%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: aliceblue;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: aliceblue;
+    border: 0px;
+}
+label{
+    margin-top: 10px;
+    color: blue;
+    font-size: large;
+}
+input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 7px;
+}
