@@ -9,7 +9,7 @@ legend {
 fieldset {
     width: 400px;
     margin: auto;
-    border: 2px solid black;
+    border: 0px;
     border-radius: 10px;
     padding: 10px;
     background-color: aliceblue;
@@ -38,4 +38,8 @@ input {
 
 input[type=submit] {
     background-color: blue;
+}
+
+input[name="ok"] {
+    color: white;
 }
