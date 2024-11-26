@@ -1,7 +1,7 @@
 from libGrille import *
 
 # on ouvre un objet graphique, version de la lib Grille
-g = ouvrirFenetreGrille(80,16,12)
+g = ouvrirFenetreGrille(50,16,12)
 
 # on place des murs
 for i,j in [(2,0), (2,1), (2,2), (3,3), (4,3), (4,4), \
