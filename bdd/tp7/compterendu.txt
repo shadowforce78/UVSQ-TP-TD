@@ -1,0 +1,59 @@
+1. Relancer le script demo.sql et consulter les schémas de EMP et de DEPT (avec la commande desc).
+DESC EMP;
+DESC DEPT;
+
+2. Visualiser la liste des contraintes en affichant le contenu de la table USER_CONSTRAINTS du dictionnaire de données. Quelles contraintes peut-on remarquer ?
+SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME FROM USER_CONSTRAINTS;
+
+3. Tester l’insertion d’un employé dont on ne connait que le nom (’DUPONT’), le salaire (600 $) et le département (30).
+INSERT INTO EMP (ENAME, SAL, DEPTNO) VALUES ('DUPONT', 600, 30);
+
+4. Modifier le schéma de EMP de manière à ce que l’attribut EMPNO comporte 5 chiffres au maximum. Peut-on remettre EMPNO à 4 chiffres ?
+ALTER TABLE EMP MODIFY EMPNO NUMBER(5);
+
+5. Modifier la table EMP de manière à ce qu’il ne puisse pas y avoir de salaire inférieur à 800 $. Tester la contrainte.
+ALTER TABLE EMP ADD CONSTRAINT min_salary CHECK (SAL >= 800);
+INSERT INTO EMP (ENAME, SAL, DEPTNO) VALUES ('TEST', 700, 30); -- This should fail
+
+6. Modifier la table EMP de manière à ce que la date d’embauche soit par défaut la date courante. Tester la contrainte.
+ALTER TABLE EMP MODIFY HIREDATE DEFAULT SYSDATE;
+INSERT INTO EMP (ENAME, SAL, DEPTNO) VALUES ('TEST2', 900, 30); -- HIREDATE should be set to current date
+
+7. Vérifier, en affichant le contenu de DEPT, si DEPTNO satisfait la contrainte de clé dans la table DEPT.
+SELECT * FROM DEPT;
+
+8. Insérer un département ayant la même valeur de DEPTNO qu’un département existant.
+INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (10, 'NEW_DEPT', 'NEW_LOC'); -- This should fail
+
+9. Tenter d’ajouter une contrainte sur la table DEPT définissant DEPTNO comme clé primaire.
+ALTER TABLE DEPT ADD CONSTRAINT pk_dept PRIMARY KEY (DEPTNO);
+
+10. Supprimez le tuple que vous venez d’insérer. Retentez la modification définissant DEPTNO comme clé primaire de DEPT. Testez cette contrainte en réinsérant à nouveau le tuple.
+DELETE FROM DEPT WHERE DEPTNO = 10;
+ALTER TABLE DEPT ADD CONSTRAINT pk_dept PRIMARY KEY (DEPTNO);
+INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (10, 'NEW_DEPT', 'NEW_LOC'); -- This should fail
+
+11. Modifier la table EMP de manière à ce que le cumul du salaire et de la commission soit obligatoirement compris entre 800 et 8000 $. Tester la contrainte.
+ALTER TABLE EMP ADD CONSTRAINT sal_comm_range CHECK (SAL + NVL(COMM, 0) BETWEEN 800 AND 8000);
+INSERT INTO EMP (ENAME, SAL, COMM, DEPTNO) VALUES ('TEST3', 7000, 2000, 30); -- This should fail
+
+12. Modifier la table EMP de manière à ce que le numéro de département de EMP définisse une clé étrangère correspondant à la clé primaire DEPTNO de DEPT. Tester la contrainte.
+ALTER TABLE EMP ADD CONSTRAINT fk_dept FOREIGN KEY (DEPTNO) REFERENCES DEPT(DEPTNO);
+INSERT INTO EMP (ENAME, SAL, DEPTNO) VALUES ('TEST4', 900, 50); -- This should fail
+
+13. Modifier la table EMP de manière à ce que le numéro d’employé soit clé primaire. Tester la contrainte.
+ALTER TABLE EMP ADD CONSTRAINT pk_emp PRIMARY KEY (EMPNO);
+INSERT INTO EMP (EMPNO, ENAME, SAL, DEPTNO) VALUES (7369, 'TEST5', 900, 30); -- This should fail
+
+14. Tenter de définir la contrainte que COMM ne puisse pas avoir de valeur nulle.
+ALTER TABLE EMP MODIFY COMM NOT NULL;
+
+15. Tenter de supprimer la contrainte de clé primaire sur DEPT (Utilisez la clause DROP ? AVEC ET SANS LA CLAUSE CASCADE).
+ALTER TABLE DEPT DROP CONSTRAINT pk_dept;
+ALTER TABLE DEPT DROP CONSTRAINT pk_dept CASCADE;
+
+16. Existe-t-il un moyen pour exprimer la contrainte que les départements ont tous des employés ?
+ALTER TABLE EMP ADD CONSTRAINT dept_has_employees CHECK (DEPTNO IN (SELECT DEPTNO FROM DEPT));
+
+17. Pour récapituler, visualisez la liste des contraintes en affichant la vue du dictionnaire de données USER_CONSTRAINTS.
+SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME FROM USER_CONSTRAINTS;
