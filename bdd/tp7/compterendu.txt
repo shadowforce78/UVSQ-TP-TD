@@ -13,7 +13,7 @@ ALTER TABLE EMP MODIFY EMPNO NUMBER(5);
 
 5. Modifier la table EMP de manière à ce qu’il ne puisse pas y avoir de salaire inférieur à 800 $. Tester la contrainte.
 ALTER TABLE EMP ADD CONSTRAINT min_salary CHECK (SAL >= 800);
-INSERT INTO EMP (ENAME, SAL, DEPTNO) VALUES ('TEST', 700, 30); -- This should fail
+INSERT INTO EMP (ENAME, SAL, DEPTNO) VALUES ('TEST', 700, 30); -- Erreur
 
 6. Modifier la table EMP de manière à ce que la date d’embauche soit par défaut la date courante. Tester la contrainte.
 ALTER TABLE EMP MODIFY HIREDATE DEFAULT SYSDATE;
