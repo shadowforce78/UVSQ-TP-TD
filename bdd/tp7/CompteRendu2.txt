@@ -75,7 +75,7 @@ CREATE VIEW PROJECTS AS SELECT P.PNAME, E.ENAME, E.DEPTNO, D.LOC FROM EMP E, PRO
 SELECT * FROM PROJECTS;
 (c) Que peut-on dire sur l’insertion du tuple ('DURAND', 'SATELLITE', 179)
 dans PROJSTAFF.
-On ne peut pas insérer ce tuple car le projet 179 n'existe pas dans la table PROJET.
+On ne peut pas insérer ce tuple car le projet 179 n'existe pas dans la table PROJET (101 à 105).
 
 6. Interrogation des vues
 (a) Donner les noms des employés qui sont affectés au projet numéro 101.
