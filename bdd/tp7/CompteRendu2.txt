@@ -1,0 +1,98 @@
+TABLE EMP : 
+CREATE TABLE EMP
+       (EMPNO NUMBER(4) NOT NULL,
+        ENAME VARCHAR2(10),
+        JOB VARCHAR2(9),
+        MGR NUMBER(4),
+        HIREDATE DATE,
+        SAL NUMBER(7, 2),
+        COMM NUMBER(7, 2),
+        DEPTNO NUMBER(2));
+
+TABLE DEPT : 
+CREATE TABLE DEPT
+       (DEPTNO NUMBER(2),
+        DNAME VARCHAR2(14),
+        LOC VARCHAR2(13) );
+
+
+
+
+1. Créer une table PROJET(PNUM, PNAME) en définissant PNUM comme clé primaire,
+puis insérer 5 projets numérotés entre 101 et 105.
+CREATE TABLE PROJET(PNUM NUMBER(4) PRIMARY KEY, PNAME VARCHAR2(20));
+INSERT INTO PROJET VALUES(101, 'TERRE');
+INSERT INTO PROJET VALUES(102, 'LUNE');
+INSERT INTO PROJET VALUES(103, 'MARS');
+INSERT INTO PROJET VALUES(104, 'VENUS');
+INSERT INTO PROJET VALUES(105, 'JUPITER');
+
+2. Ajouter une colonne PNUM à la table EMP et une contrainte de clé étrangère sur
+cette colonne pour référencer la table PROJET. Affecter chaque employé à un projet.
+ALTER TABLE EMP ADD PNUM NUMBER(4);
+ALTER TABLE EMP ADD CONSTRAINT FK_PNUM FOREIGN KEY (PNUM) REFERENCES PROJET(PNUM);
+UPDATE EMP SET PNUM = 101 WHERE EMPNO = 7369;
+UPDATE EMP SET PNUM = 102 WHERE EMPNO = 7499;
+UPDATE EMP SET PNUM = 103 WHERE EMPNO = 7521;
+UPDATE EMP SET PNUM = 104 WHERE EMPNO = 7566;
+UPDATE EMP SET PNUM = 105 WHERE EMPNO = 7698;
+
+
+3. Création de vue à partir d’une relation
+(a) Créer une vue EMP10 qui permet de donner pour le département numéro 10, les
+numéros des employés, leurs noms et leurs postes.
+CREATE VIEW EMP10 AS SELECT EMPNO, ENAME, JOB FROM EMP WHERE DEPTNO = 10;
+(b) Donner le contenu de la vue.
+SELECT * FROM EMP10;
+
+4. Impact d’une modification d’une relation sur une vue et vice versa
+(a) En utilisant la relation EMP, changer le poste de l’employé MILLER en ANALYST.
+UPDATE EMP SET JOB = 'ANALYST' WHERE ENAME = 'MILLER';
+SELECT * FROM EMP WHERE ENAME = 'MILLER';
+SELECT * FROM EMP10;
+(b) En utilisant la relation EMP, insérer un nouvel employé
+(7999, 'BROWN', 'CLERK', 7902, to_date('25-JAN-80', 'dd-mon-yy'), 800, NULL, 10, 102).
+INSERT INTO EMP VALUES(7999, 'BROWN', 'CLERK', 7902, to_date('25-JAN-80', 'dd-mon-yy'), 800, NULL, 10, 102);
+(c) En utilisant la vue EMP10, donner les noms et les postes des employés du
+département numéro 10.
+SELECT * FROM EMP10;
+(d) En utilisant la vue EMP10, remettre le poste de l’employé MILLER à CLERK.
+UPDATE EMP10 SET JOB = 'CLERK' WHERE ENAME = 'MILLER';
+SELECT * FROM EMP WHERE ENAME = 'MILLER';
+SELECT * FROM EMP10;
+(e) Donner le contenu de la vue EMP10. Que peut-on déduire ?
+SELECT * FROM EMP10;
+On a tous les employés appartenant au département 10
+
+5. Création des vues par jointure sur les relations
+(a) Créer une vue PROJSTAFF contenant les noms des employés, les noms et les
+numéros des projets sur lesquels ils sont affectés. Afficher le contenu de la vue.
+(b) Créer une vue PROJECTS contenant les noms des projets, les noms et les numéros
+des employés, ainsi que la ville de leurs départements. Afficher le contenu de la vue.
+(c) Que peut-on dire sur l’insertion du tuple ('DURAND', 'SATELLITE', 179)
+dans PROJSTAFF.
+
+6. Interrogation des vues
+(a) Donner les noms des employés qui sont affectés au projet numéro 101.
+(b) Donner les noms des projets et les noms des employés travaillant à NEW YORK.
+
+7. Interrogation par jointure de relation et de vue
+(a) Donner les postes et les projets des employés travaillant à NEW YORK. (utiliser
+la vue PROJECTS et la relation EMP)
+
+8. Création de vue à partir d’une autre vue
+(a) En utilisant la vue PROJECTS, créer une autre vue NEW YORK donnant les
+noms des projets et les noms des employés travaillant à NEW YORK. Lister
+ensuite le contenu de cette vue.
+
+9. Création de vue avec utilisation de champs calculés
+(a) Créer une vue PAY contenant les noms des employés, leurs salaires mensuels et
+leurs salaires annuels ainsi que leur numéro de département.
+(b) Lister ensuite ceux du département 30.
+(c) Peut-on modifier cette vue ?
+
+10. Création de vue avec utilisation des agrégats
+(a) Créer une vue DEPT SAL contenant pour chaque département, le minimum, le
+maximum, la moyenne et le cumul des salaires.
+
+11. Qu’est-ce que l’indépendance logique ? Donner un exemple.
