@@ -67,8 +67,12 @@ On a tous les employés appartenant au département 10
 5. Création des vues par jointure sur les relations
 (a) Créer une vue PROJSTAFF contenant les noms des employés, les noms et les
 numéros des projets sur lesquels ils sont affectés. Afficher le contenu de la vue.
+CREATE VIEW PROJSTAFF AS SELECT E.ENAME, P.PNAME, P.PNUM FROM EMP E, PROJET P WHERE E.PNUM = P.PNUM;
+SELECT * FROM PROJSTAFF;
 (b) Créer une vue PROJECTS contenant les noms des projets, les noms et les numéros
 des employés, ainsi que la ville de leurs départements. Afficher le contenu de la vue.
+CREATE VIEW PROJECTS AS SELECT P.PNAME, E.ENAME, E.DEPTNO, D.LOC FROM EMP E, PROJET P, DEPT D WHERE E.PNUM = P.PNUM AND E.DEPTNO = D.DEPTNO;
+SELECT * FROM PROJECTS;
 (c) Que peut-on dire sur l’insertion du tuple ('DURAND', 'SATELLITE', 179)
 dans PROJSTAFF.
 
