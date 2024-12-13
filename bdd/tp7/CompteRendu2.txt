@@ -79,25 +79,38 @@ On ne peut pas insérer ce tuple car le projet 179 n'existe pas dans la table PR
 
 6. Interrogation des vues
 (a) Donner les noms des employés qui sont affectés au projet numéro 101.
+SELECT ENAME FROM PROJSTAFF WHERE PNUM = 101;
 (b) Donner les noms des projets et les noms des employés travaillant à NEW YORK.
+SELECT PNAME, ENAME FROM PROJECTS WHERE LOC = 'NEW YORK';
 
 7. Interrogation par jointure de relation et de vue
 (a) Donner les postes et les projets des employés travaillant à NEW YORK. (utiliser
 la vue PROJECTS et la relation EMP)
+SELECT JOB, PNAME FROM PROJECTS, EMP WHERE PROJECTS.ENAME = EMP.ENAME AND LOC = 'NEW YORK';
 
 8. Création de vue à partir d’une autre vue
 (a) En utilisant la vue PROJECTS, créer une autre vue NEW YORK donnant les
 noms des projets et les noms des employés travaillant à NEW YORK. Lister
 ensuite le contenu de cette vue.
+CREATE VIEW NEW_YORK AS SELECT PNAME, ENAME FROM PROJECTS WHERE LOC = 'NEW YORK';
+SELECT * FROM NEW_YORK;
 
 9. Création de vue avec utilisation de champs calculés
 (a) Créer une vue PAY contenant les noms des employés, leurs salaires mensuels et
 leurs salaires annuels ainsi que leur numéro de département.
+CREATE VIEW PAY AS SELECT ENAME, SAL, SAL*12 AS SALAIRE_ANNUEL, DEPTNO FROM EMP;
+SELECT * FROM PAY;
 (b) Lister ensuite ceux du département 30.
+SELECT * FROM PAY WHERE DEPTNO = 30;
 (c) Peut-on modifier cette vue ?
+Oui, car elle ne contient pas de contraintes.
 
 10. Création de vue avec utilisation des agrégats
 (a) Créer une vue DEPT SAL contenant pour chaque département, le minimum, le
 maximum, la moyenne et le cumul des salaires.
+CREATE VIEW DEPT_SAL AS SELECT DEPTNO, MIN(SAL) AS MIN_SAL, MAX(SAL) AS MAX_SAL, AVG(SAL) AS AVG_SAL, SUM(SAL) AS SUM_SAL FROM EMP GROUP BY DEPTNO;
+SELECT * FROM DEPT_SAL;
 
 11. Qu’est-ce que l’indépendance logique ? Donner un exemple.
+L'indépendance logique est le fait de pouvoir modifier la structure d'une table sans impacter les vues qui en dépendent.
+Exemple : Si on ajoute une colonne à la table EMP, les vues EMP10, PROJSTAFF, PROJECTS, NEW_YORK, PAY et DEPT_SAL ne seront pas impactées.
