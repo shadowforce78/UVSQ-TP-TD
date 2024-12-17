@@ -8,3 +8,12 @@ def zeroInListRecursif(liste):
         return True
     return zeroInListRecursif(liste[1:])  # vérifie le reste de la liste
 print(zeroInListRecursif(arb))
+
+
+# # Simple demonstration de la récursivité
+# def recursive(n):
+#     if n == 0:
+#         return 0
+#     print(n)
+#     return recursive(n-1)
+# recursive(5)
