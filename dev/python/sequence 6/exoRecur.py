@@ -17,3 +17,12 @@ print(zeroInListRecursif(arb))
 #     print(n)
 #     return recursive(n-1)
 # recursive(5)
+
+# # Exo 2
+# def f(i,j):
+#     print(i,j,'|',end=' ')
+#     if i < 2:
+#         f(i+1,j)
+#     if j < 1:
+#         f(i,j+1)
+# f(0,0)
