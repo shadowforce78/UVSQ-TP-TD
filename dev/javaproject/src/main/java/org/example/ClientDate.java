@@ -2,7 +2,14 @@ package org.example;
 
 public class ClientDate {
     public static void main(String[] args) {
-        Date date = new Date(1, 1, 2021);
-        System.out.println(date);
+        int day = 1;
+        int month = 13;
+        int year = 2021;
+        Date date = new Date(day, month, year);
+        if (date.isValid()){
+            System.out.println(date.toString());
+        } else {
+            System.out.println("Date invalide");
+        }
     }
 }
