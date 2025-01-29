@@ -1,0 +1,6 @@
+id=c(1,2,3)
+module=c("maths","informatique","réseaux")
+heure=c(30,60,15)
+df<-data.frame(id=id, module=module, heure=heure)
+print("Dataframe:")
+print(df)
