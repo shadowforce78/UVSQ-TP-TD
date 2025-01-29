@@ -1,0 +1,17 @@
+SECTION INTVEC
+B main
+
+SECTION CODE
+main
+    MOV R1, #8        ; load immediate value 8 into R1
+    MOV R2, #2        ; load immediate value 2 into R2
+    ADD R0, R1, R2    ; R0 = R1 + R2 (8 + 2)
+    STR R0, resultat  ; store result from R0
+fin
+    B fin
+
+SECTION DATA ; Attention cette section est prise en compte
+; dès le chargement de la simulation
+var1 ASSIGN32 0x8 ; déclaration et affectation des variables var1
+var2 ASSIGN32 0x2 ; et var2
+resultat ASSIGN32 0x0

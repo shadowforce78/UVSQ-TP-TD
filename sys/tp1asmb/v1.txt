@@ -1,0 +1,16 @@
+SECTION INTVEC
+B main
+SECTION CODE
+main
+LDR R0, resultat
+LDR R1, var1 ; charger la valeur de var1 dans R1
+LDR R2, var2 ; charger la valeur de var2 dans R2
+ADD R0, R1, R2 ; R1 = R1 + R2
+STR R1, resultat ; stocker R1 dans resultat
+fin
+B fin
+SECTION DATA ; Attention cette section est prise en compte
+; dès le chargement de la simulation
+var1 ASSIGN32 0x8 ; déclaration et affectation des variables var1
+var2 ASSIGN32 0x2 ; et var2
+resultat ASSIGN32 0x0
