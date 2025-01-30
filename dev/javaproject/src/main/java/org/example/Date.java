@@ -56,6 +56,19 @@ public class Date {
         return true;
     }
 
+    public int compareTo(Date parDate) {
+        // Compare years first
+        if (this.chYear != parDate.chYear) {
+            return this.chYear - parDate.chYear;
+        }
+        // If years are equal, compare months
+        if (this.chMonth != parDate.chMonth) {
+            return this.chMonth - parDate.chMonth;
+        }
+        // If months are equal, compare days
+        return this.chDay - parDate.chDay;
+    }
+
     public static Date lireDate() {
         Scanner scanner = new Scanner(System.in);
         try {
