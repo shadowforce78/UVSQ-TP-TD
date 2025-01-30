@@ -36,17 +36,17 @@ public class Date {
         boolean isLeapYear = (chYear % 4 == 0 && chYear % 100 != 0) || (chYear % 400 == 0);
 
         // Validate days in each month
-        if (chMonth == 2) {
-            if (isLeapYear) {
-                return chDay <= 29;
-            } else {
-                return chDay <= 28;
-            }
-        } else if (chMonth == 4 || chMonth == 6 || chMonth == 9 || chMonth == 11) {
-            return chDay <= 30;
-        } else {
-            return true;
+        switch (chMonth) {
+            case 2:
+                if (chDay > (isLeapYear ? 29 : 28)) return false;
+                break;
+            case 4: case 6: case 9: case 11:
+                if (chDay > 30) return false;
+                break;
+            default:
         }
+
+        return true;
     }
 
 }
