@@ -1,22 +1,34 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ClientDate {
     public static void main(String[] args) {
-        Date date1 = new Date(34, 4, 2022);
-        Date date2 = new Date(30,2,2022);
-        Date date3 = new Date(31,13,2021);
-        Date date4 = new Date(29,2,2020);
-        Date date5 = new Date(29,2,2060);
-        Date date6 = new Date(29,2,2100);
-        Date date7 = new Date(29,2,2020);
-        Date date8 = new Date(29,2,2013);
+        Scanner scanner = new Scanner(System.in);
+        List<Date> dates = new ArrayList<>();
 
-        List<Date> dates = List.of(date1, date2, date3, date4, date5, date6, date7, date8);
+        System.out.println("Combien de dates voulez-vous vérifier ?");
+        int numDates = scanner.nextInt();
+
+        for (int i = 0; i < numDates; i++) {
+            System.out.println("\nDate " + (i + 1) + ":");
+            System.out.print("Entrez le jour: ");
+            int jour = scanner.nextInt();
+            System.out.print("Entrez le mois: ");
+            int mois = scanner.nextInt();
+            System.out.print("Entrez l'année: ");
+            int annee = scanner.nextInt();
+
+            dates.add(new Date(jour, mois, annee));
+        }
+
         // Test isValid for each date
         for (Date date : dates) {
             System.out.println(date + " is valid: " + date.isValid());
         }
+
+        scanner.close();
     }
 }
