@@ -44,6 +44,7 @@ public class Date {
                 if (chDay > 30) return false;
                 break;
             default:
+                break;
         }
 
         return true;
