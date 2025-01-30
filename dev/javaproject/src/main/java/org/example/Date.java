@@ -45,7 +45,7 @@ public class Date {
         } else if (chMonth == 4 || chMonth == 6 || chMonth == 9 || chMonth == 11) {
             return chDay <= 30;
         } else {
-            return chDay <= 31;
+            return true;
         }
     }
 
