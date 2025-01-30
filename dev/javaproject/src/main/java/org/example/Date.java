@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Date {
 
     // attributes
@@ -48,6 +50,21 @@ public class Date {
         }
 
         return true;
+    }
+
+    public static Date lireDate() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Entrez le jour: ");
+            int jour = scanner.nextInt();
+            System.out.print("Entrez le mois: ");
+            int mois = scanner.nextInt();
+            System.out.print("Entrez l'année: ");
+            int annee = scanner.nextInt();
+            return new Date(jour, mois, annee);
+        } finally {
+            scanner.close();
+        }
     }
 
 }

@@ -14,14 +14,7 @@ public class ClientDate {
 
         for (int i = 0; i < numDates; i++) {
             System.out.println("\nDate " + (i + 1) + ":");
-            System.out.print("Entrez le jour: ");
-            int jour = scanner.nextInt();
-            System.out.print("Entrez le mois: ");
-            int mois = scanner.nextInt();
-            System.out.print("Entrez l'année: ");
-            int annee = scanner.nextInt();
-
-            dates.add(new Date(jour, mois, annee));
+            dates.add(Date.lireDate());
         }
 
         // Test isValid for each date
