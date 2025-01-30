@@ -21,7 +21,6 @@ public class Date {
         return chDay + "/" + chMonth + "/" + chYear;
     }
 
-
     // method isValid
     public Boolean isValid() {
         if (chDay < 1 || chDay > 31) {
@@ -40,10 +39,15 @@ public class Date {
         // Validate days in each month
         switch (chMonth) {
             case 2:
-                if (chDay > (isLeapYear ? 29 : 28)) return false;
+                if (chDay > (isLeapYear ? 29 : 28))
+                    return false;
                 break;
-            case 4: case 6: case 9: case 11:
-                if (chDay > 30) return false;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (chDay > 30)
+                    return false;
                 break;
             default:
                 break;
@@ -66,5 +70,4 @@ public class Date {
             scanner.close();
         }
     }
-
 }
