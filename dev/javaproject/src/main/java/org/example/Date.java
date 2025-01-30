@@ -2,12 +2,12 @@ package org.example;
 
 public class Date {
 
-    // attributs
+    // attributes
     public int chDay;
     public int chMonth;
     public int chYear;
 
-    // constructeur
+    // constructor
     public Date(int jour, int month, int year) {
         this.chDay = jour;
         this.chMonth = month;
