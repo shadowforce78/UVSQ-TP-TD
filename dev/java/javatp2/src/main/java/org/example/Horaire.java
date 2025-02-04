@@ -23,6 +23,10 @@ public class Horaire {
         return chQuartHeure;
     }
 
+    public int getMinutes(){
+        return chQuartHeure;
+    }
+
     public void setHeure(int parHeure){
         chHeure = parHeure;
     }
