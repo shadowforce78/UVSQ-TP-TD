@@ -1,6 +1,6 @@
 package org.example;
 
-public class PlageHoraire {
+public class PlageHoraire implements Comparable<PlageHoraire> {
     private static final int DUREE_MIN = 15;
     private Horaire debut;
     private Horaire fin;
@@ -22,5 +22,18 @@ public class PlageHoraire {
 
     public String toString() {
         return debut + " - " + fin + " (" + getDuree() + " minutes)";
+    }
+
+    @Override
+    public int compareTo(PlageHoraire autre) {
+        int debutThis = this.debut.getHeure() * 60 + this.debut.getMinutes();
+        int debutAutre = autre.debut.getHeure() * 60 + autre.debut.getMinutes();
+        
+        if (debutThis < debutAutre) {
+            return -1;
+        } else if (debutThis > debutAutre) {
+            return 1;
+        }
+        return 0;
     }
 }
