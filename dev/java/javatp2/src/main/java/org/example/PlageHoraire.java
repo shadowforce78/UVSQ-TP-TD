@@ -24,7 +24,6 @@ public class PlageHoraire implements Comparable<PlageHoraire> {
         return debut + " - " + fin + " (" + getDuree() + " minutes)";
     }
 
-    @Override
     public int compareTo(PlageHoraire autre) {
         int debutThis = this.debut.getHeure() * 60 + this.debut.getMinutes();
         int debutAutre = autre.debut.getHeure() * 60 + autre.debut.getMinutes();
