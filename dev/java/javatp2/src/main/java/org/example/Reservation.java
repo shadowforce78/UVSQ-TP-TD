@@ -26,4 +26,8 @@ public class Reservation {
     public String toString() {
         return chTtitre + " le " + chDate + " de " + chPlageHoraire;
     }
+
+    public int compareTo(Reservation autre) {
+        return chPlageHoraire.compareTo(autre.getPlageHoraire());
+    }
 }
