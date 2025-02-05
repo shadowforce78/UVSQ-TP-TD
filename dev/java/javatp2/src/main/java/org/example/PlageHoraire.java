@@ -15,8 +15,8 @@ public class PlageHoraire implements Comparable<PlageHoraire> {
     }
 
     public int getDuree() {
-        int debutMinutes = debut.getHeure() * 60 + debut.getMinutes();
-        int finMinutes = fin.getHeure() * 60 + fin.getMinutes();
+        int debutMinutes = debut.toMinutes();
+        int finMinutes = fin.toMinutes();
         return finMinutes - debutMinutes;
     }
 
