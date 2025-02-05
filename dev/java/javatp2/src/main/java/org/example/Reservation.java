@@ -28,6 +28,10 @@ public class Reservation {
     }
 
     public int compareTo(Reservation autre) {
+        int compareDate = this.chDate.compareTo(autre.getDate());
+        if (compareDate != 0) {
+            return compareDate;
+        }
         return chPlageHoraire.compareTo(autre.getPlageHoraire());
     }
 }
