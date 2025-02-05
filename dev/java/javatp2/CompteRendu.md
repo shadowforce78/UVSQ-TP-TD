@@ -120,3 +120,16 @@ public String toString() {
 ```
 
 ### 7) Ajoutez la méthode compareTo() qui prend un paramètre de type PlageHoraire et qui retourne : un entier négatif si l'objet this précède la plage horaire reçue en paramètre, un entier positif si la plage horaire reçue en argument précède l'objet this, 0 dans tous les autres cas
+```java
+public int compareTo(PlageHoraire autre) {
+        int debutThis = this.debut.getHeure() * 60 + this.debut.getMinutes();
+        int debutAutre = autre.debut.getHeure() * 60 + autre.debut.getMinutes();
+        
+        if (debutThis < debutAutre) {
+            return -1;
+        } else if (debutThis > debutAutre) {
+            return 1;
+        }
+        return 0;
+    }
+```
