@@ -133,3 +133,16 @@ public int compareTo(PlageHoraire autre) {
         return 0;
     }
 ```
+
+## 1.3 La classe Reservation
+### 3) Ecrivez la méthode compareTo()
+
+```java
+public int compareTo(Reservation autre) {
+        int compareDate = this.chDate.compareTo(autre.getDate());
+        if (compareDate != 0) {
+            return compareDate;
+        }
+        return chPlageHoraire.compareTo(autre.getPlageHoraire());
+    }
+```
