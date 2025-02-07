@@ -1,0 +1,2 @@
+192.168.24.52:1521, nom de service: freepdb1
+Nom d'user: planque, et mdp: azerty
