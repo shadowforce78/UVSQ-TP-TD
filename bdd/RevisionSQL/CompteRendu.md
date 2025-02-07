@@ -118,3 +118,4 @@ HAVING COUNT(*) > 2;
 SELECT job FROM emp 
 GROUP BY job 
 HAVING AVG(sal) > (SELECT AVG(sal) FROM emp WHERE job = 'MANAGER');
+```
