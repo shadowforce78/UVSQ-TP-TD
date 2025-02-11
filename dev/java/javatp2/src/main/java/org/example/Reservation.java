@@ -11,10 +11,6 @@ public class Reservation {
         this.chDate = parDate;
     }
     
-    // Renvoie la première reservation d'un tableau de réservations
-    public String getReservation() {
-        return chTtitre + " le " + chDate + " de " + chPlageHoraire;
-    }
 
     public PlageHoraire getPlageHoraire() {
         return chPlageHoraire;

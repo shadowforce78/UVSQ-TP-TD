@@ -7,5 +7,6 @@ public class PlaningClient {
         planing.ajouter(new Reservation("Paul", new PlageHoraire(new Horaire(9, 0), new Horaire(10, 0)), "2021-01-01"));
         planing.ajouter(new Reservation("Jacques", new PlageHoraire(new Horaire(10, 0), new Horaire(11, 0)), "2021-01-01"));
         System.out.println(planing.toString());
+        System.out.println(planing.getFirstResa());
     }
 }

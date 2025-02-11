@@ -11,6 +11,15 @@ public class Planing {
         reservations = new Reservation[TAILLE_TAB];
     }
 
+
+    public String getFirstResa() {
+        for (Reservation reservation : reservations) {
+            if (reservation != null) {
+                return reservation.toString();
+            }
+        }
+        return "Aucune réservation";
+    }
     // Méthode qui ajoute une réservation au tableau
     public void ajouter(Reservation reservation) {
         for (int i = 0; i < TAILLE_TAB; i++) {
