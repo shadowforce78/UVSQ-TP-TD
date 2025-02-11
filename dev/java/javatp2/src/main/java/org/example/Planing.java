@@ -5,7 +5,7 @@ public class Planing {
     private Reservation[] reservations;
     // Entier constant qui contient la taille du tableau
     private static final int TAILLE_TAB = 100;
-    
+
     // Constructeur de la classe Planing
     public Planing() {
         reservations = new Reservation[TAILLE_TAB];
