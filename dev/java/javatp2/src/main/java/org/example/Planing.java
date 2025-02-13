@@ -11,6 +11,7 @@ public class Planing {
         reservations = new Reservation[TAILLE_TAB];
     }
 
+    // Méthode qui retourne la première réservation
     public String getFirstResa() {
         for (Reservation reservation : reservations) {
             if (reservation != null) {
@@ -18,6 +19,10 @@ public class Planing {
             }
         }
         return "Aucune réservation";
+    }
+    // Méthode qui retourne un tableau de réservations
+    public Reservation[] getReservations() {
+        return reservations;
     }
 
     // Méthode qui ajoute une réservation au tableau
