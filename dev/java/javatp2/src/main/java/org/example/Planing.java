@@ -11,7 +11,6 @@ public class Planing {
         reservations = new Reservation[TAILLE_TAB];
     }
 
-
     public String getFirstResa() {
         for (Reservation reservation : reservations) {
             if (reservation != null) {
@@ -20,17 +19,17 @@ public class Planing {
         }
         return "Aucune réservation";
     }
+
     // Méthode qui ajoute une réservation au tableau
-    public void ajouter(Reservation reservation) {
-        for (int i = 0; i < TAILLE_TAB; i++) {
+    public boolean ajout(Reservation parReservation) {
+        for (int i = 0; i < reservations.length; i++) {
             if (reservations[i] == null) {
-                reservations[i] = reservation;
-                return;
+                reservations[i] = parReservation;
+                return true;
             }
         }
-        throw new IllegalStateException("Le tableau est plein");
+        return false;
     }
-
     // Méthode qui affiche les réservations
     public String toString() {
         StringBuilder sb = new StringBuilder();
