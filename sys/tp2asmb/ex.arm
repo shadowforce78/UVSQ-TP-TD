@@ -1,0 +1,22 @@
+    .data
+maVar:  .word   0x7     @ Change this to 0x4 for second test
+res:    .word   0       @ Declaration of result variable
+
+    .text
+    .global _start
+
+_start:
+    LDR R0, =maVar     @ Load address of maVar
+    LDR R0, [R0]       @ Load value of maVar
+    MOV R1, #0xAA      @ R1 <- 0xAA
+    
+    CMP R0, #0x4       @ Compare maVar with 4
+    BNE skip           @ Branch if not equal
+    MOV R1, #0xBB      @ If equal, R1 <- 0xBB
+skip:
+    LDR R2, =res       @ Load address of res
+    STR R1, [R2]       @ Store R1 to res
+
+end:
+    MOV R7, #1         @ Exit syscall
+    SWI 0              @ Software interrupt
