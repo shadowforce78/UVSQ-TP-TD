@@ -20,6 +20,7 @@ public class Planing {
         }
         return "Aucune réservation";
     }
+
     // Méthode qui retourne un tableau de réservations
     public Reservation[] getReservations() {
         return reservations;
@@ -35,6 +36,7 @@ public class Planing {
         }
         return false;
     }
+
     // Méthode qui affiche les réservations
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -44,5 +46,29 @@ public class Planing {
             }
         }
         return sb.toString();
+    }
+
+    // Méthode qui trie les réservations par date
+    public void triSelection() {
+        for (int i = 0; i < TAILLE_TAB - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < TAILLE_TAB; j++) {
+                if (reservations[j] != null && reservations[minIdx] != null) {
+                    if (reservations[j].getDate().compareTo(reservations[minIdx].getDate()) < 0) {
+                        minIdx = j;
+                    }
+                }
+            }
+            if (minIdx != i) {
+                echanger(i, minIdx);
+            }
+        }
+    }
+
+    // Méthode privée pour échanger deux éléments du tableau
+    private void echanger(int i, int j) {
+        Reservation temp = reservations[i];
+        reservations[i] = reservations[j];
+        reservations[j] = temp;
     }
 }
