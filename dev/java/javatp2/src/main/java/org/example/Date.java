@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Date {
 
     // attributes
-    public int chDay;
-    public int chMonth;
-    public int chYear;
+    protected int chDay;
+    protected int chMonth;
+    protected int chYear;
 
     // constructor
     public Date(int jour, int month, int year) {
