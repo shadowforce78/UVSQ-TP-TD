@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Calendar;
 
-public class DateCalendrier extends Date {
+public class DateCalendrier extends Date implements ConstantesCalendrier {
     private int chJourSemaine;
 
     public DateCalendrier() {
@@ -38,5 +38,10 @@ public class DateCalendrier extends Date {
     public DateCalendrier dateDelaVeille() {
         Date hier = super.dateDelaVeille();
         return new DateCalendrier(hier.chDay, hier.chMonth, hier.chYear);
+    }
+
+    @Override
+    public String toString() {
+        return JOURS[chJourSemaine - 1] + " " + chDay + " " + MOIS[chMonth - 1] + " " + chYear;
     }
 }
