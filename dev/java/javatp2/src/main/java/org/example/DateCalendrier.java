@@ -3,10 +3,10 @@ package org.example;
 import java.util.Calendar;
 
 public class DateCalendrier {
-    private int chJourSemaine;
-    private int chJour;
-    private int chMois;
-    private int chAnnee;
+    public int chJourSemaine;
+    public int chJour;
+    public int chMois;
+    public int chAnnee;
 
     public DateCalendrier() {
         Calendar aujourd_hui = Calendar.getInstance();
