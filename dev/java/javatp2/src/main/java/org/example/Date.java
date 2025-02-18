@@ -83,4 +83,54 @@ public class Date {
             scanner.close();
         }
     }
+
+    public Date dateDuLendemain() {
+        int jour = this.chDay;
+        int mois = this.chMonth;
+        int annee = this.chYear;
+
+        jour++;
+        // Vérifier si on dépasse le nombre de jours du mois
+        int maxJours = 31;
+        if (mois == 4 || mois == 6 || mois == 9 || mois == 11)
+            maxJours = 30;
+        else if (mois == 2) {
+            maxJours = ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0)) ? 29 : 28;
+        }
+
+        if (jour > maxJours) {
+            jour = 1;
+            mois++;
+            if (mois > 12) {
+                mois = 1;
+                annee++;
+            }
+        }
+
+        return new Date(jour, mois, annee);
+    }
+
+    public Date dateDelaVeille() {
+        int jour = this.chDay;
+        int mois = this.chMonth;
+        int annee = this.chYear;
+
+        jour--;
+        if (jour < 1) {
+            mois--;
+            if (mois < 1) {
+                mois = 12;
+                annee--;
+            }
+            int maxJours = 31;
+            if (mois == 4 || mois == 6 || mois == 9 || mois == 11)
+                maxJours = 30;
+            else if (mois == 2) {
+                maxJours = ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0)) ? 29 : 28;
+            }
+            jour = maxJours;
+        }
+
+        return new Date(jour, mois, annee);
+    }
 }
