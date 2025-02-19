@@ -18,3 +18,18 @@ Oui, le microprocesseur utilise le stockage Little Endian pour les données. On 
 - L'octet de poids fort est stocké à l'adresse la plus haute
 
 C'est une caractéristique typique de l'architecture x86.
+
+## Exercice 2 Big VS little Endian pour stocker les programmes en mémoire
+
+### Code binaire de MOV R1, R0
+
+Code binaire original: E1 A0 10 00
+
+### Observations
+
+En mémoire, l'instruction MOV R1, R0 est stockée comme:
+00 10 A0 E1
+
+### Conclusion
+
+Les instructions sont également stockées en Little Endian dans la mémoire du programme, comme on peut le voir avec l'inversion des octets du code machine de l'instruction MOV R1, R0.
