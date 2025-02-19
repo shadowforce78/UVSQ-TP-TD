@@ -66,3 +66,15 @@ Conclusion : Oui, on peut dire que PC contient l'adresse de l'instruction à ex�
   - R0 : adresse de base
   - R1 : index (0-9)
   - LSL #2 : multiplication par 4 (taille d'un mot)
+
+## Exercice 3 Ecriture des puissances de 2
+
+### Explications
+
+- Un tableau de 10 cases est réservé en mémoire (ALLOC32)
+- R0 contient l'adresse de base du tableau
+- R1 sert de compteur et d'offset pour l'adressage (0-9)
+- R2 stocke la valeur à écrire dans le tableau
+- R3 maintient la puissance de 2 courante
+- L'instruction LSL R3, R3, #1 multiplie R3 par 2 à chaque itération
+- Le tableau contiendra : 1, 2, 4, 8, 16, 32, 64, 128, 256, 512
