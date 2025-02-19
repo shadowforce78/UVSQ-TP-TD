@@ -1,0 +1,12 @@
+SECTION INTVEC
+B main
+SECTION CODE
+main
+MOV R0, #0xAA
+MOV R1, #0xBB
+MOV R2, #0xCC
+MOV R3, #0xDD
+fin
+B fin
+
+SECTION DATA
