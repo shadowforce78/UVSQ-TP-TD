@@ -492,7 +492,7 @@ insert into ord (
 ) values ( '45',
            '11-JAN-1987',
            '611',
-           '11JAN-1987',
+           '11-JAN-1987',  -- Fixed date format here
            '102',
            'B' );
 
