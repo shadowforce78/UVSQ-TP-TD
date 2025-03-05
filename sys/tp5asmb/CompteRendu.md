@@ -131,7 +131,7 @@ BX LR ; Retour au programme appelant
 ## SECTION DATA
 
 ```
-tableau ASSIGN32 01, -02, 05, -0
+tableau ASSIGN32 01, -02, 05, -0    
 maPile ALLOC32 4
 ```
 
