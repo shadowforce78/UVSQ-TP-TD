@@ -26,18 +26,6 @@ public class Planing {
         return reservations;
     }
 
-    // Méthode qui ajoute une réservation au tableau
-    // public boolean ajout(Reservation parReservation) {
-    //     for (int i = 0; i < reservations.length; i++) {
-    //         if (reservations[i] == null) {
-    //             reservations[i] = parReservation;
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
-
     // Méthode d'ajout avec gestion d'exception (sans boolean)
     public Exception ajout(Reservation parReservation) {
         for (int i = 0; i < reservations.length; i++) {
