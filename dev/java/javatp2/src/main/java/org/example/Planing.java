@@ -27,14 +27,26 @@ public class Planing {
     }
 
     // Méthode qui ajoute une réservation au tableau
-    public boolean ajout(Reservation parReservation) {
+    // public boolean ajout(Reservation parReservation) {
+    //     for (int i = 0; i < reservations.length; i++) {
+    //         if (reservations[i] == null) {
+    //             reservations[i] = parReservation;
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+
+    // Méthode d'ajout avec gestion d'exception (sans boolean)
+    public Exception ajout(Reservation parReservation) {
         for (int i = 0; i < reservations.length; i++) {
             if (reservations[i] == null) {
                 reservations[i] = parReservation;
-                return true;
+                return null;
             }
         }
-        return false;
+        return new Exception("Tableau plein");
     }
 
     // Méthode qui affiche les réservations
