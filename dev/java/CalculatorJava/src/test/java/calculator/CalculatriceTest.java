@@ -9,13 +9,16 @@ class CalculatriceTest {
 
     @BeforeEach
     void setUp() {
+        System.out.println("Test started");
     }
 
     @AfterEach
     void tearDown() {
+        System.out.println("Test finished");
     }
 
     @Test
     void addition() {
+        System.out.println("Test addition");
     }
 }

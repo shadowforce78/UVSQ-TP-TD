@@ -58,3 +58,26 @@
     }
     ``` 
 Quelles sont les méthodes de la classe CalculatriceTest ? - setUp() - tearDown() - addition()
+
+## 2.5)
+
+    Ajoutez des instructions d'affichage dans chacune des 3 méthodes puis éxectuez le test, que constatez-vous ?
+    
+    ```java 
+    @BeforeEach
+    void setUp() {
+        System.out.println("Début du test");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("Fin du test");
+    }
+
+    @Test
+    void addition() {
+        System.out.println("Test d'addition");
+    }
+    ```
+    - On constate que les méthodes setUp() et tearDown() sont exécutées avant et après le test d'addition().
+    - On constate que le test d'addition() est exécuté après les méthodes setUp() et avant la méthode tearDown().
