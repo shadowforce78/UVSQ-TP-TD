@@ -20,5 +20,7 @@ class CalculatriceTest {
     @Test
     void addition() {
         System.out.println("Test addition");
+        assertTrue(Calculatrice.addition(-3, 2) == -1, "test échoué pour a négatif et b positif");
+        assertEquals(Calculatrice.addition(3, -2), 1, "test échoué pour a positif et b négatif");
     }
 }
