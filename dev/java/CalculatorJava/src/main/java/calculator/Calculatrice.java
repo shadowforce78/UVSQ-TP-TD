@@ -1,8 +1,10 @@
 package calculator;
 
-
 public class Calculatrice {
-    public int ajouterUn(int a) {
-        return a + 1;
+    public int addition(int a, int b) {
+        for (int i = 0; i < b; i++) {
+            a++;
+        }
+        return a;
     }
 }
