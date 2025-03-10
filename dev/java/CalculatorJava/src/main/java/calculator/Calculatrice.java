@@ -2,8 +2,14 @@ package calculator;
 
 public class Calculatrice {
     public static int addition(int a, int b) {
-        for (int i = 0; i < b; i++) {
-            a++;
+        if (b >= 0) {
+            for (int i = 0; i < b; i++) {
+                a++;
+            }
+        } else {
+            for (int i = 0; i < Math.abs(b); i++) {
+                a--;
+            }
         }
         return a;
     }
