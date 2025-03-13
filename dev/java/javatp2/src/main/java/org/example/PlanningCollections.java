@@ -3,8 +3,8 @@ package org.example;
 import java.util.*;
 
 public class PlanningCollections {
-    private List <Reservation> chListReservations;
-    private Set <Reservation> chSetReservations;
+    private List<Reservation> chListReservations;
+    private Set<Reservation> chSetReservations;
 
     public PlanningCollections() {
         chListReservations = new ArrayList<Reservation>();
@@ -12,11 +12,12 @@ public class PlanningCollections {
     }
 
     @Override
-    public String toString(){
-        return "TreeSet :" + chSetReservations.size() + "-" + chSetReservations + "\n" + "ArrayList :" + chListReservations.size() + "-" + chListReservations;
+    public String toString() {
+        return "TreeSet :" + chSetReservations.size() + "-" + chSetReservations + "\n" + "ArrayList :"
+                + chListReservations.size() + "-" + chListReservations;
     }
 
-    public void ajouter(Reservation parReservation) throws ExceptionPlanning{
+    public void ajouter(Reservation parReservation) throws ExceptionPlanning {
         Iterator<Reservation> iterateur = chListReservations.iterator();
         while (iterateur.hasNext()) {
             Reservation reservation = iterateur.next();
@@ -29,7 +30,7 @@ public class PlanningCollections {
         // Ajout au TreeSet
         int sizeInitiale = chSetReservations.size();
         chSetReservations.add(parReservation);
-        if(sizeInitiale == chSetReservations.size()){
+        if (sizeInitiale == chSetReservations.size()) {
             throw new ExceptionPlanning(2);
         }
     }
