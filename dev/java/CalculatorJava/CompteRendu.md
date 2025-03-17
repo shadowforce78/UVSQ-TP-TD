@@ -15,13 +15,13 @@ Les méthodes suivantes de la classe `Calculatrice` sont testées :
 ## 2. Description du test
 
 ### Type de test
-Les tests effectués sont des **tests unitaires**, réalisés à l'aide de **JUnit**. Ils visent à tester chaque fonction indépendamment.
+Les tests effectués sont des **tests unitaires**, réalisés à l'aide de **JUnit**. Ils visent à tester chaque fonction indépendamment. Pour les tests d'exception, nous utilisons la méthode **assertThrows** qui permet de vérifier qu'une exception spécifique est bien levée dans certaines conditions.
 
 ### Stratégie adoptée
 La stratégie adoptée est celle de la **boîte noire**, où nous vérifions les entrées et sorties sans nous préoccuper de l'implémentation interne. Nous avons également utilisé la **partition d'équivalence**, où nous testons différents cas représentatifs des entrées possibles.
 
 ### Présentation de la procédure
-Chaque fonction est soumise à des cas de test spécifiques, prenant en compte des valeurs positives, négatives et nulles. Pour la division, nous avons également testé les cas provoquant des exceptions.
+Chaque fonction est soumise à des cas de test spécifiques, prenant en compte des valeurs positives, négatives et nulles. Pour la division, nous avons également testé les cas provoquant des exceptions, en utilisant assertThrows pour vérifier que les exceptions sont bien levées dans les cas problématiques (division par zéro ou diviseur négatif).
 
 ## 3. Tests
 
@@ -60,12 +60,18 @@ Chaque fonction est soumise à des cas de test spécifiques, prenant en compte d
 | a > 0, b > 0 | (6, 2) | 3 | ✅ |
 | a = 0, b > 0 | (0, 4) | 0 | ✅ |
 | a > 0, b = 0 | (5, 0) | Exception | ✅ |
-| a < 0, b < 0 | (-6, -2) | 3 | ✅ |
+| a < 0, b < 0 | (-6, -2) | Exception | ✅ |
+| a = 0, b < 0 | (0, -3) | Exception | ✅ |
+| a < 0, b = 0 | (-4, 0) | Exception | ✅ |
 | a = 0, b = 0 | (0, 0) | Exception | ✅ |
+| a < 0, b > 0 | (-6, 3) | -2 | ✅ |
+| a > 0, b < 0 | (6, -2) | Exception | ✅ |
 
 ### Analyse des résultats
-Tous les tests ont été validés avec succès. Les résultats obtenus sont conformes aux attentes. La gestion des erreurs dans la division par zéro est bien prise en charge par des exceptions.
+Tous les tests ont été validés avec succès. Les résultats obtenus sont conformes aux attentes. La gestion des erreurs est bien implémentée et testée en utilisant assertThrows pour vérifier que les exceptions sont bien levées dans les cas problématiques, notamment:
+- Division par zéro
+- Division avec un diviseur négatif
 
 ## 4. Conclusion
-La calculatrice a passé l'ensemble des tests unitaires sans erreur. Elle est capable d'effectuer correctement les opérations de base tout en gérant les cas particuliers. Cependant, des optimisations peuvent être envisagées pour améliorer l'efficacité des calculs, notamment en remplaçant les boucles par des opérations natives pour l'addition et la soustraction.
+La calculatrice a passé l'ensemble des tests unitaires sans erreur. Elle est capable d'effectuer correctement les opérations de base tout en gérant les cas particuliers. L'utilisation des assertions JUnit modernes (assertThrows) permet de tester efficacement les situations d'erreur, rendant le code de test plus lisible et plus maintenable.
 
