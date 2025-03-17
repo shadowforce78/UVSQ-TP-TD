@@ -66,6 +66,32 @@ class CalculatriceTest {
     @Test
     void soustraction() {
         System.out.println("Début des tests pour la méthode soustraction");
+        // P1 Test avec a > 0 et b > 0 (a - b > 0)
+        assertTrue(Calculatrice.soustraction(5, 2) == 3, "test échoué pour a > 0 et b > 0");
+
+        // P2 Test avec a = 0 et b > 0 (c = -b < 0)
+        assertTrue(Calculatrice.soustraction(0, 4) == -4, "test échoué pour a = 0 et b > 0");
+
+        // P3 Test avec a > 0 et b = 0 (c = a > 0)
+        assertTrue(Calculatrice.soustraction(3, 0) == 3, "test échoué pour a > 0 et b = 0");
+
+        // P4 Test avec a < 0 et b < 0 (c = a - b < 0)
+        assertTrue(Calculatrice.soustraction(-5, -2) == -3, "test échoué pour a < 0 et b < 0");
+
+        // P5 Test avec a = 0 et b < 0 (c = -b > 0)
+        assertTrue(Calculatrice.soustraction(0, -3) == 3, "test échoué pour a = 0 et b < 0");
+
+        // P6 Test avec a < 0 et b = 0 (c = a < 0)
+        assertTrue(Calculatrice.soustraction(-4, 0) == -4, "test échoué pour a < 0 et b = 0");
+
+        // P7 Test avec a = 0 et b = 0 (c = 0)
+        assertTrue(Calculatrice.soustraction(0, 0) == 0, "test échoué pour a = 0 et b = 0");
+
+        // P8 Test avec a < 0 et b > 0 (c = a - b < 0)
+        assertTrue(Calculatrice.soustraction(-2, 3) == -5, "test échoué pour a < 0 et b > 0");
+
+        // P9 Test avec a > 0 et b < 0 (c = a - b > 0)
+        assertTrue(Calculatrice.soustraction(4, -2) == 6, "test échoué pour a > 0 et b < 0");
 
         System.out.println("Fin des tests pour la méthode soustraction");
     }
@@ -73,6 +99,32 @@ class CalculatriceTest {
     @Test
     void multiplication() {
         System.out.println("Début des tests pour la méthode multiplication");
+        // P1 Test avec a > 0 et b > 0 (c = a * b > 0)
+        assertTrue(Calculatrice.multiplication(3, 2) == 6, "test échoué pour a > 0 et b > 0");
+
+        // P2 Test avec a = 0 et b > 0 (c = 0)
+        assertTrue(Calculatrice.multiplication(0, 4) == 0, "test échoué pour a = 0 et b > 0");
+
+        // P3 Test avec a > 0 et b = 0 (c = 0)
+        assertTrue(Calculatrice.multiplication(5, 0) == 0, "test échoué pour a > 0 et b = 0");
+
+        // P4 Test avec a < 0 et b < 0 (c = a * b > 0)
+        assertTrue(Calculatrice.multiplication(-3, -2) == 6, "test échoué pour a < 0 et b < 0");
+
+        // P5 Test avec a = 0 et b < 0 (c = 0)
+        assertTrue(Calculatrice.multiplication(0, -3) == 0, "test échoué pour a = 0 et b < 0");
+
+        // P6 Test avec a < 0 et b = 0 (c = 0)
+        assertTrue(Calculatrice.multiplication(-4, 0) == 0, "test échoué pour a < 0 et b = 0");
+
+        // P7 Test avec a = 0 et b = 0 (c = 0)
+        assertTrue(Calculatrice.multiplication(0, 0) == 0, "test échoué pour a = 0 et b = 0");
+
+        // P8 Test avec a < 0 et b > 0 (c = a * b < 0)
+        assertTrue(Calculatrice.multiplication(-2, 3) == -6, "test échoué pour a < 0 et b > 0");
+
+        // P9 Test avec a > 0 et b < 0 (c = a * b < 0)
+        assertTrue(Calculatrice.multiplication(4, -2) == -8, "test échoué pour a > 0 et b < 0");
 
         System.out.println("Fin des tests pour la méthode multiplication");
     }
@@ -80,6 +132,48 @@ class CalculatriceTest {
     @Test
     void division() {
         System.out.println("Début des tests pour la méthode division");
+
+        // P1 Test avec a > 0 et b > 0 (c = a / b > 0)
+        assertTrue(Calculatrice.division(6, 2) == 3, "test échoué pour a > 0 et b > 0");
+
+        // P2 Test avec a = 0 et b > 0 (c = 0)
+        assertTrue(Calculatrice.division(0, 4) == 0, "test échoué pour a = 0 et b > 0");
+
+        // P3 Test avec a > 0 et b = 0 (c = erreur -> exception attendue)
+        try {
+            Calculatrice.division(5, 0);
+            fail("test échoué pour a > 0 et b = 0, exception attendue");
+        } catch (ArithmeticException e) {
+            // Test réussi
+        }
+
+        // P4 Test avec a < 0 et b < 0 (c = a / b > 0)
+        assertTrue(Calculatrice.division(-6, -2) == 3, "test échoué pour a < 0 et b < 0");
+
+        // P5 Test avec a = 0 et b < 0 (c = 0)
+        assertTrue(Calculatrice.division(0, -3) == 0, "test échoué pour a = 0 et b < 0");
+
+        // P6 Test avec a < 0 et b = 0 (c = erreur -> exception attendue)
+        try {
+            Calculatrice.division(-4, 0);
+            fail("test échoué pour a < 0 et b = 0, exception attendue");
+        } catch (ArithmeticException e) {
+            // Test réussi
+        }
+
+        // P7 Test avec a = 0 et b = 0 (c = erreur -> exception attendue)
+        try {
+            Calculatrice.division(0, 0);
+            fail("test échoué pour a = 0 et b = 0, exception attendue");
+        } catch (ArithmeticException e) {
+            // Test réussi
+        }
+
+        // P8 Test avec a < 0 et b > 0 (c = a / b < 0)
+        assertTrue(Calculatrice.division(-6, 3) == -2, "test échoué pour a < 0 et b > 0");
+
+        // P9 Test avec a > 0 et b < 0 (c = a / b < 0)
+        assertTrue(Calculatrice.division(6, -2) == -3, "test échoué pour a > 0 et b < 0");
 
         System.out.println("Fin des tests pour la méthode division");
     }
