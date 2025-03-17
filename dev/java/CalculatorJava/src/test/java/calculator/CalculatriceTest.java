@@ -140,40 +140,37 @@ class CalculatriceTest {
         assertTrue(Calculatrice.division(0, 4) == 0, "test échoué pour a = 0 et b > 0");
 
         // P3 Test avec a > 0 et b = 0 (c = erreur -> exception attendue)
-        try {
-            Calculatrice.division(5, 0);
-            fail("test échoué pour a > 0 et b = 0, exception attendue");
-        } catch (ArithmeticException e) {
-            // Test réussi
-        }
+        assertThrows(ArithmeticException.class,
+                () -> Calculatrice.division(5, 0),
+                "test échoué pour a > 0 et b = 0, exception attendue");
 
-        // P4 Test avec a < 0 et b < 0 (c = a / b > 0)
-        assertTrue(Calculatrice.division(-6, -2) == 3, "test échoué pour a < 0 et b < 0");
+        // P4 Test avec a < 0 et b < 0 (c = erreur -> exception attendue)
+        assertThrows(ArithmeticException.class,
+                () -> Calculatrice.division(-6, -2),
+                "test échoué pour a < 0 et b < 0, exception attendue");
 
-        // P5 Test avec a = 0 et b < 0 (c = 0)
-        assertTrue(Calculatrice.division(0, -3) == 0, "test échoué pour a = 0 et b < 0");
+        // P5 Test avec a = 0 et b < 0 (c = erreur -> exception attendue)
+        assertThrows(ArithmeticException.class,
+                () -> Calculatrice.division(0, -3),
+                "test échoué pour a = 0 et b < 0, exception attendue");
 
         // P6 Test avec a < 0 et b = 0 (c = erreur -> exception attendue)
-        try {
-            Calculatrice.division(-4, 0);
-            fail("test échoué pour a < 0 et b = 0, exception attendue");
-        } catch (ArithmeticException e) {
-            // Test réussi
-        }
+        assertThrows(ArithmeticException.class,
+                () -> Calculatrice.division(-4, 0),
+                "test échoué pour a < 0 et b = 0, exception attendue");
 
         // P7 Test avec a = 0 et b = 0 (c = erreur -> exception attendue)
-        try {
-            Calculatrice.division(0, 0);
-            fail("test échoué pour a = 0 et b = 0, exception attendue");
-        } catch (ArithmeticException e) {
-            // Test réussi
-        }
+        assertThrows(ArithmeticException.class,
+                () -> Calculatrice.division(0, 0),
+                "test échoué pour a = 0 et b = 0, exception attendue");
 
         // P8 Test avec a < 0 et b > 0 (c = a / b < 0)
         assertTrue(Calculatrice.division(-6, 3) == -2, "test échoué pour a < 0 et b > 0");
 
-        // P9 Test avec a > 0 et b < 0 (c = a / b < 0)
-        assertTrue(Calculatrice.division(6, -2) == -3, "test échoué pour a > 0 et b < 0");
+        // P9 Test avec a > 0 et b < 0 (c = erreur -> exception attendue)
+        assertThrows(ArithmeticException.class,
+                () -> Calculatrice.division(6, -2),
+                "test échoué pour a > 0 et b < 0, exception attendue");
 
         System.out.println("Fin des tests pour la méthode division");
     }

@@ -42,6 +42,11 @@ public class Calculatrice {
         if (b == 0) {
             throw new ArithmeticException("Division par zéro");
         }
+
+        if (b<0){
+            throw new ArithmeticException("Division par un nombre négatif");
+        }
+
         int result = 0;
         int absA = Math.abs(a);
         int absB = Math.abs(b);
