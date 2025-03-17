@@ -15,13 +15,13 @@ Les méthodes suivantes de la classe `Calculatrice` sont testées :
 ## 2. Description du test
 
 ### Type de test
-Les tests effectués sont des **tests unitaires**, réalisés à l'aide de **JUnit**. Ils visent à tester chaque fonction indépendamment. Pour les tests d'exception, nous utilisons la méthode **assertThrows** qui permet de vérifier qu'une exception spécifique est bien levée dans certaines conditions.
+Les tests effectués sont des **tests unitaires**, réalisés à l'aide de **JUnit**. Ils visent à tester chaque fonction indépendamment. Pour les tests standards (sans exception attendue), nous utilisons la méthode **assertTrue** qui vérifie que le résultat obtenu correspond à la valeur attendue. Pour les tests d'exception, nous utilisons la méthode **assertThrows** qui permet de vérifier qu'une exception spécifique est bien levée dans certaines conditions.
 
 ### Stratégie adoptée
 La stratégie adoptée est celle de la **boîte noire**, où nous vérifions les entrées et sorties sans nous préoccuper de l'implémentation interne. Nous avons également utilisé la **partition d'équivalence**, où nous testons différents cas représentatifs des entrées possibles.
 
 ### Présentation de la procédure
-Chaque fonction est soumise à des cas de test spécifiques, prenant en compte des valeurs positives, négatives et nulles. Pour la division, nous avons également testé les cas provoquant des exceptions, en utilisant assertThrows pour vérifier que les exceptions sont bien levées dans les cas problématiques (division par zéro ou diviseur négatif).
+Chaque fonction est soumise à des cas de test spécifiques, prenant en compte des valeurs positives, négatives et nulles. Pour les cas standards, nous vérifions avec assertTrue que le résultat de l'opération correspond à la valeur attendue. Pour la division, nous avons également testé les cas provoquant des exceptions, en utilisant assertThrows pour vérifier que les exceptions sont bien levées dans les cas problématiques (division par zéro ou diviseur négatif).
 
 ## 3. Tests
 
@@ -68,10 +68,10 @@ Chaque fonction est soumise à des cas de test spécifiques, prenant en compte d
 | a > 0, b < 0 | (6, -2) | Exception | ✅ |
 
 ### Analyse des résultats
-Tous les tests ont été validés avec succès. Les résultats obtenus sont conformes aux attentes. La gestion des erreurs est bien implémentée et testée en utilisant assertThrows pour vérifier que les exceptions sont bien levées dans les cas problématiques, notamment:
+Tous les tests ont été validés avec succès. Les résultats obtenus sont conformes aux attentes. Pour les tests standards, nous avons utilisé assertTrue pour vérifier que chaque opération renvoie le résultat correct. Pour les cas d'erreur, la gestion est bien implémentée et testée en utilisant assertThrows pour vérifier que les exceptions sont bien levées dans les cas problématiques, notamment:
 - Division par zéro
 - Division avec un diviseur négatif
 
 ## 4. Conclusion
-La calculatrice a passé l'ensemble des tests unitaires sans erreur. Elle est capable d'effectuer correctement les opérations de base tout en gérant les cas particuliers. L'utilisation des assertions JUnit modernes (assertThrows) permet de tester efficacement les situations d'erreur, rendant le code de test plus lisible et plus maintenable.
+La calculatrice a passé l'ensemble des tests unitaires sans erreur. Elle est capable d'effectuer correctement les opérations de base tout en gérant les cas particuliers. L'utilisation des assertions JUnit modernes (assertTrue pour les tests standards et assertThrows pour les exceptions) permet de tester efficacement tous les scénarios, rendant le code de test plus lisible et plus maintenable.
 
