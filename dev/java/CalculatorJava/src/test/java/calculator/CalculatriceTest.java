@@ -22,17 +22,45 @@ class CalculatriceTest {
     void addition() {
         System.out.println("Test addition");
 
-        //1 Test avec a et b positif 
+        // P1 Test avec a et b positif
         assertTrue(Calculatrice.addition(3, 2) == 5, "test échoué pour a et b positif");
-        //2 Test avec a = 0 et b positif
-        assertTrue(Calculatrice.addition(0, 2) == 2, "test échoué pour a = 0 et b positif");
-        //3 Test avec a positif et b = 0
-        assertTrue(Calculatrice.addition(3, 0) == 3, "test échoué pour a positif et b = 0");
-        //4 Test avec a et b négatif
-        assertTrue(Calculatrice.addition(-3, -2) == -5, "test échoué pour a et b négatif");
-        //5 Test avec a = 0 et b négatif
-        assertTrue(Calculatrice.addition(0, -2) == -2, "test échoué pour a = 0 et b négatif");
 
-        System.out.println("Tous les tests sont terminés !");
+        // P2 Test avec a = 0 et b > 0
+        assertTrue(Calculatrice.addition(0, 4) == 4, "test échoué pour a = 0 et b > 0");
+
+        // P3 Test avec a > 0 et b = 0
+        assertTrue(Calculatrice.addition(5, 0) == 5, "test échoué pour a > 0 et b = 0");
+
+        // P4 Test avec a = 0 et b < 0
+        assertTrue(Calculatrice.addition(0, -3) == -3, "test échoué pour a = 0 et b < 0");
+
+        // P5 Test avec a < 0 et b = 0
+        assertTrue(Calculatrice.addition(-7, 0) == -7, "test échoué pour a < 0 et b = 0");
+
+        // P6 Test avec a < 0 et b < 0
+        assertTrue(Calculatrice.addition(-4, -6) == -10, "test échoué pour a < 0 et b < 0");
+
+        // P7 Test avec a = 0 et b = 0
+        assertTrue(Calculatrice.addition(0, 0) == 0, "test échoué pour a = 0 et b = 0");
+
+        // P8 Test avec a < 0 et b > 0 et |a| > b
+        assertTrue(Calculatrice.addition(-6, 2) == -4, "test échoué pour a < 0 et |a| > b");
+
+        // P9 Test avec a < 0 et b > 0 et |a| < b
+        assertTrue(Calculatrice.addition(-3, 5) == 2, "test échoué pour a < 0 et |a| < b");
+
+        // P10 Test avec a < 0 et b > 0 et |a| = |b|
+        assertTrue(Calculatrice.addition(-4, 4) == 0, "test échoué pour a < 0 et |a| = |b|");
+
+        // P11 Test avec a > 0 et b < 0 et |b| > a
+        assertTrue(Calculatrice.addition(3, -5) == -2, "test échoué pour a > 0 et |b| > a");
+
+        // P12 Test avec a > 0 et b < 0 et |b| < a
+        assertTrue(Calculatrice.addition(6, -2) == 4, "test échoué pour a > 0 et |b| < a");
+
+        // P13 Test avec a > 0 et b < 0 et |b| = a
+        assertTrue(Calculatrice.addition(7, -7) == 0, "test échoué pour a > 0 et |b| = a");
+
+        System.out.println("Tous les tests sont terminus !");
     }
 }
