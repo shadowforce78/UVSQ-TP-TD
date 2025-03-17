@@ -75,3 +75,6 @@ Tous les tests ont été validés avec succès. Les résultats obtenus sont conf
 ## 4. Conclusion
 La calculatrice a passé l'ensemble des tests unitaires sans erreur. Elle est capable d'effectuer correctement les opérations de base tout en gérant les cas particuliers. L'utilisation des assertions JUnit modernes (assertTrue pour les tests standards et assertThrows pour les exceptions) permet de tester efficacement tous les scénarios, rendant le code de test plus lisible et plus maintenable.
 
+---
+*Adam Planque*
+
