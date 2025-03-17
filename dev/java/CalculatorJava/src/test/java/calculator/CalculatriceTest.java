@@ -42,5 +42,7 @@ class CalculatriceTest {
         // Test avec grands nombres
         assertEquals(Calculatrice.addition(100, 200), 300, "test échoué pour grands nombres positifs");
         assertEquals(Calculatrice.addition(-100, -200), -300, "test échoué pour grands nombres négatifs");
+
+        System.out.println("Tous les tests sont terminés !");
     }
 }
