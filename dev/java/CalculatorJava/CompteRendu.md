@@ -1,83 +1,71 @@
-# Programmation de la calculatrice
+# Dossier de tests pour la calculatrice
 
-## 1.1)
+## 1. Introduction
 
-    Créé le projet Maven
+### Objectifs du test
+L'objectif de ces tests est de vérifier le bon fonctionnement des opérations de base implémentées dans la calculatrice, à savoir l'addition, la soustraction, la multiplication et la division. Ces tests permettent d'identifier d'éventuelles erreurs et de valider la robustesse des algorithmes utilisés.
 
-## 1.2)
+### Présentation de ce qui est testé
+Les méthodes suivantes de la classe `Calculatrice` sont testées :
+- `addition(int a, int b)`
+- `soustraction(int a, int b)`
+- `multiplication(int a, int b)`
+- `division(int a, int b)`
 
-    Quels sont les répertoires créés par Maven dans votre projet ?
-        - Le répertoire src/main/java contient les sources Java du projet.
-        - Le répertoire src/main/resources contient les ressources du projet.
-        - Le répertoire src/test/java contient les sources de test Java du projet.
-        - Le répertoire target contient les fichiers générés par Maven.
-        - Le fichier pom.xml contient la configuration du projet.
+## 2. Description du test
 
--
+### Type de test
+Les tests effectués sont des **tests unitaires**, réalisés à l'aide de **JUnit**. Ils visent à tester chaque fonction indépendamment.
 
-## 1.3)
+### Stratégie adoptée
+La stratégie adoptée est celle de la **boîte noire**, où nous vérifions les entrées et sorties sans nous préoccuper de l'implémentation interne. Nous avons également utilisé la **partition d'équivalence**, où nous testons différents cas représentatifs des entrées possibles.
 
-    Dans le répertoire src/main/java, créez un package, puis une classe Calculatrice.
+### Présentation de la procédure
+Chaque fonction est soumise à des cas de test spécifiques, prenant en compte des valeurs positives, négatives et nulles. Pour la division, nous avons également testé les cas provoquant des exceptions.
 
-## 1.4)
+## 3. Tests
 
-    Codez une première version de la première opération de votre calculatrice en utilisant seulement l'opération + 1.
+### Cas de test et résultats
 
-    ```java
-    public class Calculatrice {
-        public int addition(int a) {
-            return a + 1;
-        }
-    }
-    ```
+#### 3.1 Addition
+| Cas de test | Entrée (a, b) | Attendu | Résultat |
+|------------|--------------|---------|----------|
+| a et b positifs | (3, 2) | 5 | ✅ |
+| a = 0, b > 0 | (0, 4) | 4 | ✅ |
+| a > 0, b = 0 | (5, 0) | 5 | ✅ |
+| a et b négatifs | (-4, -6) | -10 | ✅ |
+| a < 0, b > 0, | (-3, 5) | 2 | ✅ |
+| a > 0, b < 0 | (7, -7) | 0 | ✅ |
 
-## 2.4)
+#### 3.2 Soustraction
+| Cas de test | Entrée (a, b) | Attendu | Résultat |
+|------------|--------------|---------|----------|
+| a > 0, b > 0 | (5, 2) | 3 | ✅ |
+| a = 0, b > 0 | (0, 4) | -4 | ✅ |
+| a > 0, b = 0 | (3, 0) | 3 | ✅ |
+| a et b négatifs | (-5, -2) | -3 | ✅ |
+| a > 0, b < 0 | (4, -2) | 6 | ✅ |
 
-    ```java
-    package calculator;
+#### 3.3 Multiplication
+| Cas de test | Entrée (a, b) | Attendu | Résultat |
+|------------|--------------|---------|----------|
+| a > 0, b > 0 | (3, 2) | 6 | ✅ |
+| a = 0, b > 0 | (0, 4) | 0 | ✅ |
+| a et b négatifs | (-3, -2) | 6 | ✅ |
+| a > 0, b < 0 | (4, -2) | -8 | ✅ |
 
-    import org.junit.jupiter.api.AfterEach;
-    import org.junit.jupiter.api.BeforeEach;
-    import org.junit.jupiter.api.Test;
+#### 3.4 Division
+| Cas de test | Entrée (a, b) | Attendu | Résultat |
+|------------|--------------|---------|----------|
+| a > 0, b > 0 | (6, 2) | 3 | ✅ |
+| a = 0, b > 0 | (0, 4) | 0 | ✅ |
+| a > 0, b = 0 | (5, 0) | Exception | ✅ |
+| a < 0, b < 0 | (-6, -2) | 3 | ✅ |
+| a = 0, b = 0 | (0, 0) | Exception | ✅ |
 
-    import static org.junit.jupiter.api.Assertions.\*;
-    class CalculatriceTest {
+### Analyse des résultats
+Tous les tests ont été validés avec succès. Les résultats obtenus sont conformes aux attentes. La gestion des erreurs dans la division par zéro est bien prise en charge par des exceptions.
 
-        @BeforeEach
-        void setUp() {
-        }
+## 4. Conclusion
+La calculatrice a passé l'ensemble des tests unitaires sans erreur. Elle est capable d'effectuer correctement les opérations de base tout en gérant les cas particuliers. Cependant, des optimisations peuvent être envisagées pour améliorer l'efficacité des calculs, notamment en remplaçant les boucles par des opérations natives pour l'addition et la soustraction.
 
-        @AfterEach
-        void tearDown() {
-        }
-
-        @Test
-        void addition() {
-        }
-
-    }
-    ``` 
-Quelles sont les méthodes de la classe CalculatriceTest ? - setUp() - tearDown() - addition()
-
-## 2.5)
-
-    Ajoutez des instructions d'affichage dans chacune des 3 méthodes puis éxectuez le test, que constatez-vous ?
-    
-    ```java 
-    @BeforeEach
-    void setUp() {
-        System.out.println("Début du test");
-    }
-
-    @AfterEach
-    void tearDown() {
-        System.out.println("Fin du test");
-    }
-
-    @Test
-    void addition() {
-        System.out.println("Test d'addition");
-    }
-    ```
-    - On constate que les méthodes setUp() et tearDown() sont exécutées avant et après le test d'addition().
-    - On constate que le test d'addition() est exécuté après les méthodes setUp() et avant la méthode tearDown().
