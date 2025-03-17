@@ -10,17 +10,16 @@ class CalculatriceTest {
 
     @BeforeEach
     void setUp() {
-        System.out.println("Test started");
     }
 
     @AfterEach
     void tearDown() {
-        System.out.println("Test finished");
     }
 
     @Test
     void addition() {
-        System.out.println("Test addition");
+
+        System.out.println("Début des tests pour la méthode addition");
 
         // P1 Test avec a et b positif
         assertTrue(Calculatrice.addition(3, 2) == 5, "test échoué pour a et b positif");
@@ -61,6 +60,27 @@ class CalculatriceTest {
         // P13 Test avec a > 0 et b < 0 et |b| = a
         assertTrue(Calculatrice.addition(7, -7) == 0, "test échoué pour a > 0 et |b| = a");
 
-        System.out.println("Tous les tests sont terminus !");
+        System.out.println("Fin des tests pour la méthode addition");
+    }
+
+    @Test
+    void soustraction() {
+        System.out.println("Début des tests pour la méthode soustraction");
+
+        System.out.println("Fin des tests pour la méthode soustraction");
+    }
+
+    @Test
+    void multiplication() {
+        System.out.println("Début des tests pour la méthode multiplication");
+
+        System.out.println("Fin des tests pour la méthode multiplication");
+    }
+
+    @Test
+    void division() {
+        System.out.println("Début des tests pour la méthode division");
+
+        System.out.println("Fin des tests pour la méthode division");
     }
 }
