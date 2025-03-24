@@ -1,3 +1,0 @@
-from todolist import *
-
-main()
