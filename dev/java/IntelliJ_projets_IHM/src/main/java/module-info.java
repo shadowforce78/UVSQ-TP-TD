@@ -7,4 +7,5 @@ module org.example.intellij_projets_ihm {
     opens org.example.intellij_projets_ihm to javafx.fxml;
     exports org.example.intellij_projets_ihm;
     exports vue;
+    exports modele;
 }
