@@ -10,7 +10,6 @@ public class Reservation {
         this.chTtitre = parTitre;
         this.chDate = parDate;
     }
-    
 
     public PlageHoraire getPlageHoraire() {
         return chPlageHoraire;
