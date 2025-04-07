@@ -47,3 +47,14 @@
 2) ```bash
     git diff
     ```
+
+## Exercice 3
+1) ```bash
+    gitk --all
+    ```
+
+2) Sur la fenetre on voit 3 zones principales :
+- La zone en haut : liste des commits effectués sur le projet
+- La zone du milieu : affiche le hash du commit
+- La zone du bas : affiche l'ensemble des info du commit, comme le message de commit, l'auteur, la date, etc.
+
