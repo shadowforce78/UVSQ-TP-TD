@@ -25,31 +25,20 @@
     ```
 
 6) ```bash
+    mkdir src
     echo "print('Hello World')" > src/hello.py
     ```
 
 7) ```bash
     git add src/hello.py
-    git commit -m "Hello World"
+    git commit -m "Hello World (py)"
     ```
-
-##### On push tous les commits sur la branche main
-```bash
-git push -u origin main
-```
 
 8) ```bash
     git log
     ```
 
 ## Exercice 2
-
-<!-- En ligne de commande réalisez quelques commits de test supplémentaires. Par exemple modifiez
-hello.py pour lui faire afficher d’autre message, mettez à jour le README etc. A chaque étape :
-1 Utilisez la commande git status et analysez sa sortie avant un git add, après un git add et après
-un git commit
-2 Utilisez la commande git diff et analysez sa sortie -->
-
 
 1) ```bash
     git status
@@ -58,5 +47,3 @@ un git commit
 2) ```bash
     git diff
     ```
-
-3) ```bash
